@@ -1,0 +1,26 @@
+{
+  "name": "medi-reminde",
+  "version": "1.0.0",
+  "description": "This is the node js packages for medi- reminder website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manojm01/medi-remainder.git"
+  },
+  "author": "Manoj Metgud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manojm01/medi-remainder/issues"
+  },
+  "homepage": "https://github.com/manojm01/medi-remainder#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "bootstrap": "^5.1.3",
+    "express": "^4.17.2",
+    "mongod": "^2.0.0",
+    "mongoose": "^6.1.4"
+  }
+}

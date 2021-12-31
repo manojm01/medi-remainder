@@ -1,0 +1,101 @@
+<%- include('header') -%>
+
+    <% if(locals.forget){ %>
+        <div class="alter alert-success text-center mt-5">
+
+            <h2>
+                <%= forget %>
+
+            </h2>
+        </div>
+
+        <% } %>
+            <% if(locals.register){ %>
+                <div class="alter alert-success text-center mt-5">
+                    <h2>
+                        <%= register %>
+                    </h2>
+
+                </div>
+
+                </div>
+                <% if(locals.logout){ %>
+                    <div class="alter alert-success text-center mt-5">
+                        <h2>
+                            <%= logout %>
+                        </h2>
+                    </div>
+                    <% } %>
+
+                        <% } %>
+                            <% if(locals.invalid){ %>
+                                <div class="alter alert-danger  text-center mt-5">
+                                    <h2>
+                                        <%= invalid %>
+                                    </h2>
+                                </div>
+
+
+                                <% } %>
+
+
+                                    <!-- 
+                                    <div class="container mt-5 pt-5" id="login">
+                                        <section id="content">
+                                            <div class="title pb-5 mt-5">
+                                                <h2 class="font-weight-bold">Login System</h2>
+
+
+                                            </div> -->
+                                    <!-- <form action="/login" method="POST"> -->
+                                    <!-- <h1>Login Form</h1> -->
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="card">
+                                                    <form action="/login" class="box" method="POST">
+
+                                                        <!-- <form onsubmit="event.preventDefault()" class="box"> -->
+                                                        <h1>Login</h1>
+                                                        <p class="text-muted"> Please enter your login and password!</p> <input type="text" name="email" placeholder="Username / email" required> <input type="password" name="password" placeholder="Password" required>
+                                                        <a class="forgot text-muted mt-2" href="/register">Register</a><br>
+
+                                                        <a class="forgot text-muted" href="/forget_pass">Forgot password?</a> <input type="submit" value="Login">
+                                                        <div class="col-md-12">
+                                                            <ul class="social-network social-circle">
+                                                                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                                                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                                                <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 
+                                                <div>
+                                                    <input type="text" name="email" placeholder="Email/Username" required="" id="username" />
+                                                </div>
+                                                <div>
+                                                    <input type="password" name="password" placeholder="Password" required="" id="password" />
+                                                </div>
+                                                <div>
+                                                    <input type="submit" value="Log in" />
+                                                    <a href="/forget_pass">
+                                                        <p class="h5"> Forget Password? </p>
+                                                    </a>
+                                                    <a href="/register">
+
+                                                        <p class="h5 ml-5">Register</p>
+                                                    </a>
+                                                </div> -->
+                                    <!-- </form> -->
+                                    <!-- <div> -->
+                                    <!-- </section> -->
+                                    <!-- </div>
+    </div> -->
+
+
+                                    <%- include('footer') -%>
