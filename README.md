@@ -1,1 +1,1 @@
-Server folder controls all backend activities
+Server folder controls all backend activitie
