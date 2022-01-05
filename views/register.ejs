@@ -1,70 +1,5 @@
 <%- include('header') -%>
 
-
-
-    <!-- <style>
-        body {
-            font-family: Calibri, Helvetica, sans-serif;
-            background-color: pink;
-        }
-
-        .container {
-            margin: 8rem auto;
-            width: 25%;
-            min-width: 340px;
-            padding: 30px 20px;
-            background-color: rgb(255, 255, 255);
-            border-radius: 20px;
-        }
-
-      
-        
-        input[type=text],
-        input[type=password],
-        textarea {
-            border-radius: 30px;
-            color: #535558;
-            width: 100%;
-            padding: 10px;
-            display: inline-block;
-         border: none;
-            border-color: none;
-            background-color: #ebf0fc;
-        }
-
-        input[type=text]:focus,
-        input[type=password]:focus {
-            /* background-color: orange; */
-            outline: none;
-        }
-
-        div {
-            padding: 10px 0;
-        }
-
-        hr {
-            border: 1px solid #f1f1f1;
-            margin-bottom: 25px;
-        }
-
-        .registerbtn {
-            background-color: #007bff;
-            font-size: 1.2rem;
-            color: white;
-            padding: 10px 15px;
-            margin: 15px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            opacity: 0.9;
-            border-radius: 20px;
-        }
-
-        .registerbtn:hover {
-            opacity: 1;
-        }
-    </style> -->
-
 <style>
            @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
             *{
@@ -213,19 +148,22 @@
         <form  action="/api/users" method="POST">
           <div class="field">
             <span class="fas fa-user"></span>
-            <input type="text" required>
+            <input type="text" name="email" required>
             <label>Email</label>
           </div>
           <div class="field">
             <span class="fas fa-lock"></span>
-            <input type="password">
+            <input type="password" name="password">
             <label>Password</label>
           </div>
           <br>
-          <input type="radio" value="Male" name="gender" checked> Male
+          <div>
+            <input type="radio" value="Male" name="gender" checked> Male
             <input type="radio" value="Female" name="gender"> Female
             <input type="radio" value="Other" name="gender"> Other
-          <!-- <div class="forgot-pass"><a href="#">Forgot Password?</a></div> -->
+          </div>
+            
+             <!-- <div class="forgot-pass"><a href="#">Forgot Password?</a></div> -->
           <button>Sign in</button>
           <div class="signup">Not a member?
             <a href="#">signup now</a>
