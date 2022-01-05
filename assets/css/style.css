@@ -1,16 +1,45 @@
-
 #title{
-    background-color: #96DED1;
+    font-family: 'Montserrat';
+        background-color: #4FBDBA;
+    
 }
-h1{
-    font-family:"Montserrat-Black";
-    font-size: 3rem;
-    line-height: 1.5 ;
-}
-h2,h4{
-    font-family:"Montserrat-Black";
 
+h2,h4{
+
+    font-family: 'PT Serif', serif;
+}
+#FAQ section{
+    font-family:"Montserrat-Black";
+    padding-bottom: 10% ;
+    background-color: #AEFEFF;
+}
+.container-fluid
+{
+    padding-left: 3%;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    
+}
+.navbar{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.card{
+     margin-right: 10%;
+     margin-left: 10%;
+     margin-top: 10%;
+    
+}
+#footer section{
+    padding-top: 5%;
 }
 #FAQ{
-    font-family:"Montserrat-Black";
+    background-color: #AEFEFF;
+    padding-bottom: 10%;
+    margin-right: 0%;
+    margin-top:5%;
+    margin-bottom: 5%;
 }
+
+
