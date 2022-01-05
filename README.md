@@ -11,5 +11,4 @@ views -- folder cotains all the html / view- engine files for frontend...
 
 
 this is schange from ruta
-
-zzzzzzzzzzzzzzzz
+Last line ...
