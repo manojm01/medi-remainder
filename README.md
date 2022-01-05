@@ -8,3 +8,6 @@ Server-- folder controls all backend activities..
         model---Schema 
 views -- folder cotains all the html / view- engine files for frontend...
 .gitignore--git file...
+
+
+this is schange from ruta
