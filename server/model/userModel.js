@@ -11,6 +11,9 @@ var userSchema = new mongoose.Schema({
     
     password: {
         type: String
+    },
+    gender: {
+        type: String
     }
 });
 
