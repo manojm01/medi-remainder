@@ -7,6 +7,7 @@ const userController = require('./server/controllers/userController');
 
 
 const app = express();
+app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static("assets"));
