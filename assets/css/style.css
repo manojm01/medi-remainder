@@ -23,6 +23,12 @@ h2,h4{
 .navbar{
     padding-left: 2%;
     padding-right: 2%;
+    background-color: #4FBDBA;
+    
+}
+.navbar-custom {
+    color: #FFFFFF;
+    
 }
 
 .card{
