@@ -14,6 +14,8 @@ router.get('/login', (req, res) => {
 
 router.post('/', (req, res) => {
     var user = new User();
+    user.name = req.body.name;
+    user.age = req.body.age;
     user.email = req.body.email;
     user.password = req.body.password;
     user.gender = req.body.gender;
