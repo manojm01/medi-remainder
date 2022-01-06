@@ -7,12 +7,12 @@ router.get('/', (req, res) => {
     res.render("index");
 });
 router.get('/login', (req, res) => {
-    res.render("register");
+    res.render("signup");
 });
 
 
 
-router.post('/',(req,res)=>{
+router.post('/', (req, res) => {
     var user = new User();
     user.email = req.body.email;
     user.password = req.body.password;
@@ -20,7 +20,7 @@ router.post('/',(req,res)=>{
 
     user.save()
         .then(data => { res.render('index') })
-        .catch(err => {console.log(err);})
+        .catch(err => { console.log(err); })
 })
 
 
