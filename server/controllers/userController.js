@@ -14,7 +14,7 @@ router.get('/set', (req, res) => {
 router.post('/set', (req, res) => {
     var user = new User();
     user.name = req.body.name;
-    
+
 
 
 });

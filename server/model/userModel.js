@@ -4,7 +4,7 @@ var userSchema = new mongoose.Schema({
     name: {
         type: String,
     },
-    age:{
+    age: {
         type: Number
     },
     email: {
@@ -18,5 +18,5 @@ var userSchema = new mongoose.Schema({
     }
 });
 
-mongoose.model('User',userSchema);  // (name of schema, schema Object)
+mongoose.model('User', userSchema); // (name of schema, schema Object)
 // Employee -> should be in singular. In database it stores as 'employees' -> plural
