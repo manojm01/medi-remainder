@@ -19,8 +19,13 @@ router.post('/set', (req, res) => {
 
 });
 router.get('/login', (req, res) => {
+    res.render("register");
+});
+
+router.get('/signup', (req, res) => {
     res.render("signup");
 });
+
 
 
 
