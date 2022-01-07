@@ -19,4 +19,21 @@ var userSchema = new mongoose.Schema({
 });
 
 mongoose.model('User', userSchema); // (name of schema, schema Object)
-// Employee -> should be in singular. In database it stores as 'employees' -> plural
+
+
+var mediSchema = new mongoose.Schema({
+    medi_name: {
+        type: String,
+    },
+    morning: {
+        type: String,
+    },
+    afternoon: {
+        type: String,
+    },
+    night: {
+        type: String,
+    }
+});
+
+mongoose.model('Medicine', mediSchema); // (name of schema, schema Object)
