@@ -22,6 +22,10 @@ mongoose.model('User', userSchema); // (name of schema, schema Object)
 
 
 var mediSchema = new mongoose.Schema({
+
+    user_name: {
+        type: String,
+    },
     medi_name: {
         type: String,
     },
