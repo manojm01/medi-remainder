@@ -38,19 +38,19 @@
             </div>
         </nav>
     </section>
-   
+
 
     <section style="margin: 3rem 5rem;">
         <form action="/set" method="post">
             <input type="text" placeholder="Medicine name" name="medi_name">
             <label for="morning">morning</label>
-            <input type="checkbox"  value="morning" name="morning">
+            <input type="checkbox" value="morning" name="morning">
 
             <label for="afternoon">afternoon</label>
-            <input type="checkbox"  value="afternoon" name="afternoon">
+            <input type="checkbox" value="afternoon" name="afternoon">
 
             <label for="night">night</label>
-            <input type="checkbox"  value="night" name="night">
+            <input type="checkbox" value="night" name="night">
 
             <button type="submit">Add</button>
         </form>
@@ -59,24 +59,46 @@
     <section class="container mx-5">
         <table class="table">
             <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Morning</th>
-                <th scope="col">Afternoon</th>
-                <th scope="col">Night</th>
-              </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Morning</th>
+                    <th scope="col">Afternoon</th>
+                    <th scope="col">Night</th>
+                </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Cold</td>
-                <td>yes</td>
-                <td>no</td>
-                <td>yes</td>
-                <td><button>Delete</button></td>
-              </tr>
-            </tbody>
-          </table>
-    </section>
+            <%
+                if(userData.length!=0){
+                var i=1;
+                userData.forEach(function(data){
+            %>
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <%=i; %>
+                        </th>
+                        <td>
+                            <%=data.medi_name %>
+                        </td>
+                        <td>
+                            <%= data.morning %>
+                        </td>
+                        <td>
+                            <%= data.morning %>
 
+                        </td>
+                        <td>
+                            <%= data.night %>
+
+                        </td>
+                        <td><button>Delete</button></td>
+                    </tr>
+                </tbody>
+                <%  i++; }) %>
+                    <% } else{ %>
+                        <tr>
+                            <td colspan="7">No Data Found</td>
+                        </tr>
+                        <% } %>
+        </table>
+    </section>
