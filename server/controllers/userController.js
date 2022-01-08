@@ -14,9 +14,9 @@ router.get('/set', function(req, res, next) {
             if (!data) {
                 console.log('Failed to retrieve the Course List: ' + err);
             } else {
-                console.log(data)
+                // console.log(data)
                 res.render("set", {
-                    userData: data
+                    userData: data, error: false
                 });
             }
         })
@@ -44,7 +44,7 @@ router.post('/set', (req, res) => {
     user.name = req.body.name;
 
 
-    console.log(req.body);
+    // console.log(req.body);
 
     var medicine = new Medicine();
     medicine.user_name = "Ashoka";
@@ -55,7 +55,9 @@ router.post('/set', (req, res) => {
     // console.log(medicine.medi_name);
 
     medicine.save()
-        .then(data => { res.render('set') })
+        .then(data => { 
+            res.redirect("set");
+         })
         .catch(err => { console.log(err); })
         // b5b57bd1d230cc81ea5173b2947adc02f618ac5a
 
@@ -84,5 +86,13 @@ router.post('/', (req, res) => {
         .catch(err => { console.log(err); })
 })
 
+router.get('/delete/:id', (req, res) => {
+    Medicine.findByIdAndRemove(req.params.id, (err, doc) => {
+        if (!err) {
+            res.redirect('/set');
+        }
+        else { console.log('Error in medicine delete :' + err); }
+    });
+});
 
 module.exports = router;

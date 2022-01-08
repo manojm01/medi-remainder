@@ -42,7 +42,7 @@
 
     <section style="margin: 3rem 5rem;">
         <form action="/set" method="post">
-            <input type="text" placeholder="Medicine name" name="medi_name">
+            <input type="text" placeholder="Medicine name" name="medi_name" required>
             <label for="morning">morning</label>
             <input type="checkbox" value="morning" name="morning">
 
@@ -56,23 +56,28 @@
         </form>
     </section>
 
-    <section class="container mx-5">
-        <table class="table">
+    <section class="container">
+        <table class="table table-hover table-bordered" style="background-color: #eee;" >
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Morning</th>
-                    <th scope="col">Afternoon</th>
-                    <th scope="col">Night</th>
+                    <th scope="col" style="width: 5%">#</th>
+                    <th scope="col" style="width: 30%">Medicine Name</th>
+                    <th scope="col" style="width: 20%">Morning</th>
+                    <th scope="col" style="width: 20%">Afternoon</th>
+                    <th scope="col" style="width: 20%">Night</th>
+                    <th scope="col" style="width: 5%">Remove</th>
                 </tr>
             </thead>
-            <%
-                if(userData.length!=0){
-                var i=1;
-                userData.forEach(function(data){
-            %>
-                <tbody>
+            
+            
+            <tbody>
+                <% if (typeof error =='object' && error) { %>
+                    <li><%= error %></li>  
+                <% } %>
+                
+                <%    var i=1;%>
+                <%    userData.forEach(function(data){%>
+            
                     <tr>
                         <th scope="row">
                             <%=i; %>
@@ -84,21 +89,20 @@
                             <%= data.morning %>
                         </td>
                         <td>
-                            <%= data.morning %>
+                            <%= data.afternoon %>
 
                         </td>
                         <td>
                             <%= data.night %>
 
                         </td>
-                        <td><button>Delete</button></td>
+                        <td><a href="/delete/<%= data._id %>" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                        </td>
                     </tr>
+                    <%  i++; }) %>
                 </tbody>
-                <%  i++; }) %>
-                    <% } else{ %>
-                        <tr>
-                            <td colspan="7">No Data Found</td>
-                        </tr>
-                        <% } %>
+                    
         </table>
     </section>
+
+    <%- include('footer') -%>

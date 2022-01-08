@@ -45,36 +45,38 @@
                 <th>Delete</th>
             </tr>
 
-            <%
-        if(userData.length!=0){
-        var i=1;
-        userData.forEach(function(data){
-        %>
-                <tr>
-                    <td>
-                        <%=i; %>
-                    </td>
-                    <td>
-                        <%=data.medi_name %>
-                    </td>
-                    <td>
-                        <%=data.morning %>
-                    </td>
-                    <td>
-                        <%=data.afternoon %>
-                    </td>
-                    <td>
-                        <%=data.country %>
-                    </td>
-                    <td><a href="/edit/<%=data.id%>">Edit</a></td>
-                    <td><a href="/delete/<%=data.id%>">Delete</a></td>
-                </tr>
+            <% if(userData.length!=0){%>
+                <%    var i=1;%>
+                <%    userData.forEach(function(data){%>
+            
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <%=i; %>
+                        </th>
+                        <td>
+                            <%=data.medi_name %>
+                        </td>
+                        <td>
+                            <%= data.morning %>
+                        </td>
+                        <td>
+                            <%= data.morning %>
+
+                        </td>
+                        <td>
+                            <%= data.night %>
+
+                        </td>
+                        <td><button>Delete</button></td>
+                    </tr>
+                </tbody>
                 <%  i++; }) %>
                     <% } else{ %>
                         <tr>
                             <td colspan="7">No Data Found</td>
                         </tr>
-                        <% } %>
+                    <% } %>
         </table>
     </div>
 </body>
