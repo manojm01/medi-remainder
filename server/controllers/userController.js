@@ -15,10 +15,6 @@ router.get('/set', function(req, res, next) {
                 console.log('Failed to retrieve the Course List: ' + err);
             } else {
 
-                console.log(data)
-
-
-
                 // console.log(data)
 
                 res.render("set", {
@@ -55,7 +51,7 @@ router.post('/set', (req, res) => {
 
     // console.log(req.body);
     var medicine = new Medicine();
-    medicine.user_name = "Ashoka";
+    medicine.user_name = "Manoj";
     medicine.medi_name = req.body.medi_name;
     medicine.morning = req.body.morning;
     medicine.afternoon = req.body.afternoon;
@@ -70,6 +66,11 @@ router.post('/set', (req, res) => {
         // b5b57bd1d230cc81ea5173b2947adc02f618ac5a
 
 });
+router.get('/signin', (req, res) => {
+    
+});
+
+
 router.get('/login', (req, res) => {
     res.render("register");
 });
