@@ -3,7 +3,7 @@ var router = express.Router();
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const Medicine = mongoose.model('Medicine');
-
+const alert = require('alert');
 // -----------------------------------------------
 // -----------------------------------------------
 router.get('/set', function(req, res, next) {
@@ -14,10 +14,6 @@ router.get('/set', function(req, res, next) {
             if (!data) {
                 console.log('Failed to retrieve the Course List: ' + err);
             } else {
-
-                console.log(data)
-
-
 
                 // console.log(data)
 
@@ -71,7 +67,7 @@ router.post('/set', (req, res) => {
 
 });
 router.get('/login', (req, res) => {
-    res.render("register");
+    res.render("signin");
 });
 
 router.get('/signup', (req, res) => {
@@ -92,6 +88,37 @@ router.post('/', (req, res) => {
     user.save()
         .then(data => { res.render('index') })
         .catch(err => { console.log(err); })
+})
+router.post('/signin', (req, res) => {
+    // console.log('Inside the bodyyy')
+    // console.log(req.body);
+    var user = new User();
+    user.email = req.body.email;
+    user.password = req.body.password;
+    User.find({ 'email': user.email }, (err, doc) => {
+        if (doc.length == 0) {
+            console.log("User Not Found")
+            alert("Please check email and password")
+            res.redirect('login')
+
+        } else {
+            if (!err) {
+                console.log(doc)
+
+                if (doc[0].email == user.email && doc[0].password == user.password) {
+
+                    console.log("User found")
+                    res.redirect('/');
+                } else {
+                    console.log("Password  Not Found")
+                    alert("Please check email and password")
+                    res.redirect('login')
+                }
+                // if (user.email == email && user.password == )
+            } else { console.log('usser not found.. :' + err); }
+        }
+    });
+
 })
 
 router.get('/delete/:id', (req, res) => {
