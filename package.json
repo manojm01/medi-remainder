@@ -17,6 +17,7 @@
     },
     "homepage": "https://github.com/manojm01/medi-remainder#readme",
     "dependencies": {
+        "alert": "^5.0.10",
         "axios": "^0.24.0",
         "body-parser": "^1.19.1",
         "bootstrap": "^5.1.3",
