@@ -14,14 +14,22 @@ router.get('/set', function(req, res, next) {
             if (!data) {
                 console.log('Failed to retrieve the Course List: ' + err);
             } else {
+
+                console.log(data)
+
+
+
                 // console.log(data)
+
                 res.render("set", {
-                    userData: data, error: false
+                    userData: data,
+                    error: false
                 });
+                // console.log(userData)
             }
         })
         .catch(err => {
-            res.status(500).send({ message: "Erro retrieving user with id " + email })
+            res.status(500).send({ message: "Erro retrieving user with id " })
         })
 
 });
@@ -55,9 +63,9 @@ router.post('/set', (req, res) => {
     // console.log(medicine.medi_name);
 
     medicine.save()
-        .then(data => { 
+        .then(data => {
             res.redirect("set");
-         })
+        })
         .catch(err => { console.log(err); })
         // b5b57bd1d230cc81ea5173b2947adc02f618ac5a
 
@@ -90,8 +98,7 @@ router.get('/delete/:id', (req, res) => {
     Medicine.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
             res.redirect('/set');
-        }
-        else { console.log('Error in medicine delete :' + err); }
+        } else { console.log('Error in medicine delete :' + err); }
     });
 });
 
