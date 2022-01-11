@@ -35,17 +35,17 @@ router.get('/', (req, res) => {
 });
 
 router.get('/set', (req, res) => {
+    var datetime = new Date();
+    console.log(datetime);
     res.render("set");
-
 });
+
 router.post('/set', (req, res) => {
 
     var user = new User();
     user.name = req.body.name;
 
-
     // console.log(req.body);
-
     var medicine = new Medicine();
     medicine.user_name = "Ashoka";
     medicine.medi_name = req.body.medi_name;
