@@ -67,8 +67,8 @@
                     <th scope="col">Night</th>
                 </tr>
             </thead>
-            <%
-                if(userData.length!=0){
+
+            <% if(userData.length!=0){
                 var i=1;
                 userData.forEach(function(data){
             %>
@@ -78,13 +78,13 @@
                             <%=i; %>
                         </th>
                         <td>
-                            <%=data.medi_name %>
+                            <%= data.medi_name  %>
                         </td>
                         <td>
                             <%= data.morning %>
                         </td>
                         <td>
-                            <%= data.morning %>
+                            <%= data.afternoon %>
 
                         </td>
                         <td>
