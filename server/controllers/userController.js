@@ -82,19 +82,22 @@ router.post('/set', (req, res) => {
 });
 
 router.post('/signup', async(req, res) => {
-    var user = new User();
-    user.name = req.body.name;
-    user.age = req.body.age;
-    user.email = req.body.email;
-    user.gender = req.body.gender;
-    // generate salt to hash password
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(req.body.password, salt);;
 
-    user.save()
-        .then(data => { res.render('index') })
-        .catch(err => { console.log(err); })
-})
+        var user = new User();
+        let userName = req.body.name;
+        user.name = req.body.name;
+        user.age = req.body.age;
+        user.email = req.body.email;
+        user.gender = req.body.gender;
+        // generate salt to hash password
+        const salt = await bcrypt.genSalt(10);
+        user.password = await bcrypt.hash(req.body.password, salt);;
+
+        user.save()
+            .then(data => { res.render('index') })
+            .catch(err => { console.log(err); })
+    })
+    // console.log(userName);
 router.post('/signin', async(req, res) => {
     // console.log('Inside the bodyyy')
     // console.log(req.body);
