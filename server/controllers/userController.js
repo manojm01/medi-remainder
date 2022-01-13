@@ -5,48 +5,37 @@ const User = mongoose.model('User');
 const Medicine = mongoose.model('Medicine');
 const alert = require('alert');
 const bcrypt = require("bcrypt");
+const { type } = require('express/lib/response');
 // -----------------------------------------------
 // -----------------------------------------------
-router.get('/set', function(req, res, next) {
+router.get('/set/:id', function(req, res, next) {
+    var userdata = User.findById(req.params.id, (err, doc) => {
+        // console.log("doc:"+doc);
 
-    username = "Ashoka" //this username will replace the actual username of the logged in user..
-    Medicine.find({ user_name: username })
-        .then(data => {
-            if (!data) {
-                console.log('Failed to retrieve the Course List: ' + err);
-            } else {
+        // console.log("docemail: "+doc.email)
+        //    username = "Manoj" //this username will replace the actual username of the logged in user..
+        // console.log(User().name);
+        Medicine.find({ user_email: doc.email })
+            .then(data => {
+                if (!data) {
+                    console.log('Failed to retrieve the Medicine List: ' + err);
+                } else {
 
-                // console.log(data)
-
-                res.render("set", {
-                    userData: data,
-                    error: false
-                });
-                // console.log(userData)
-            }
-        })
-        .catch(err => {
-            res.status(500).send({ message: "Erro retrieving user with id " })
-        })
-
+                    // console.log("set render:"+data)
+                    res.render("set", {
+                        medicineData: data
+                    });
+                    // console.log(userData)
+                }
+            })
+            .catch(err => {
+                res.status(500).send({ message: "Erro retrieving user with id " })
+            })
+    });
 });
-
-// --------------------------------------------------
-// --------------------------------------------------
-
 
 router.get('/', (req, res) => {
-    res.render("index");
-});
-
-router.get('/set', (req, res) => {
-    var datetime = new Date();
-    console.log(datetime);
-    res.render("set");
-});
-
-router.get('/signin', (req, res) => {
-
+    res.render("signin");
 });
 
 
@@ -58,46 +47,51 @@ router.get('/signup', (req, res) => {
     res.render("signup");
 });
 
-router.post('/set', (req, res) => {
+router.post('/set', async(req, res) => {
 
     var user = new User();
+    user.email = req.body.email;
     user.name = req.body.name;
-
-    // console.log(req.body);
+    // console.log("user in set post: "+user);
     var medicine = new Medicine();
-    medicine.user_name = "Ashoka";
+    medicine.user_name = "Admin";
+    medicine.user_email = "admin@gmail.com";
     medicine.medi_name = req.body.medi_name;
     medicine.morning = req.body.morning;
     medicine.afternoon = req.body.afternoon;
-    medicine.night = req.body.night;
-    // console.log(medicine.medi_name);
+    medicine.night = req.body.night
 
+    let user1 = await User.find({ email: medicine.user_email });
     medicine.save()
         .then(data => {
-            res.redirect("set");
+            // var user = new User();
+
+            // console.log("data before redirectngg  \n\n\n"+(user1));
+            // console.log(user1[0].id)
+            var id = user1[0].id
+                // const uri = `set/{:id}`
+            res.redirect(`set/${id}`);
         })
         .catch(err => { console.log(err); })
-        // b5b57bd1d230cc81ea5173b2947adc02f618ac5a
-
 });
 
 router.post('/signup', async(req, res) => {
+    var user = new User();
+    user.name = req.body.name;
+    user.age = req.body.age;
+    user.email = req.body.email;
+    user.gender = req.body.gender;
+    // generate salt to hash password
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(req.body.password, salt);;
 
-        var user = new User();
-        let userName = req.body.name;
-        user.name = req.body.name;
-        user.age = req.body.age;
-        user.email = req.body.email;
-        user.gender = req.body.gender;
-        // generate salt to hash password
-        const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(req.body.password, salt);;
-
-        user.save()
-            .then(data => { res.render('index') })
-            .catch(err => { console.log(err); })
-    })
-    // console.log(userName);
+    user.save()
+        .then(data => {
+            // console.log(data);
+            res.render('index', { userData: data })
+        })
+        .catch(err => { console.log(err); })
+})
 router.post('/signin', async(req, res) => {
     // console.log('Inside the bodyyy')
     // console.log(req.body);
@@ -108,7 +102,8 @@ router.post('/signin', async(req, res) => {
         const validPassword = await bcrypt.compare(body.password, user.password);
         if (validPassword) {
             console.log("User found")
-            res.redirect('/');
+            console.log("User" + user)
+            res.render('index', { userData: user })
         } else {
             console.log("Password  Not Found")
             alert("Please check email and password")
@@ -123,10 +118,16 @@ router.post('/signin', async(req, res) => {
 
 })
 
-router.get('/delete/:id', (req, res) => {
-    Medicine.findByIdAndRemove(req.params.id, (err, doc) => {
+router.get('/:id', (req, res) => {
+    Medicine.findByIdAndRemove(req.params.id, async(err, doc) => {
         if (!err) {
-            res.redirect('/set');
+            console.log("delete doc: " + doc);
+            console.log("delete: " + doc.user_email);
+            let user1 = await User.find({ email: doc.user_email });
+            var id = user1[0]._id
+                // const uri = `set/{:id}`
+            res.redirect(`set/${id}`);
+            // res.redirect('/set');
         } else { console.log('Error in medicine delete :' + err); }
     });
 });
