@@ -35,7 +35,7 @@ router.get('/set/:id', function(req, res, next) {
 });
 
 router.get('/', (req, res) => {
-    res.render("index");
+    res.render("signin");
 });
 
 
