@@ -5,7 +5,6 @@ const bodyParser = require("body-parser");
 require('./server/model/connection');
 const userController = require('./server/controllers/userController');
 
-
 const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.json());
@@ -22,15 +21,15 @@ app.use('/static', express.static(path.join(__dirname, 'assets')))
 
 // app.use('/'.router);
 
-var datetime = new Date();
-var time2 = datetime.toLocaleTimeString();
-console.log(time2)
-if(time2=="3:09:00 pm"){
-    console.log("alert");
-}
-
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+// var datetime = new Date();
+// var time2 = datetime.toLocaleTimeString();
+// console.log(time2)
+// if(time2=="3:09:00 pm"){
+//     console.log("alert");
+// }
+port=3000;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 })
 
 app.use('/', userController);

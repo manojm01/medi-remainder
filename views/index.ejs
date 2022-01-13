@@ -35,6 +35,9 @@
                             <img alt="My account" src="images/iconmonstr-user-circle-thin-240.png" height="35" width="35">
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Hello <%= userData.name %> </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -65,7 +68,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Set Reminders</h5>
                             <p class="card-text">If you are forgetting to take medicines daily,then we can help you in reminding at given time.</p>
-                            <a href="set" class="btn btn-primary btn-sm">Set your reminders >></a>
+                            <a href="set/<%= userData._id %>" class="btn btn-primary btn-sm">Set your reminders >></a>
 
                         </div>
                     </div> 
