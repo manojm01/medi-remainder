@@ -75,7 +75,7 @@ router.post('/set', async (req, res) => {
         .catch(err => { console.log(err); })
 });
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', async(req, res) => {
     var user = new User();
     user.name = req.body.name;
     user.age = req.body.age;
@@ -92,13 +92,13 @@ router.post('/signup', async (req, res) => {
         })
         .catch(err => { console.log(err); })
 })
-router.post('/signin',async (req, res) => {
+router.post('/signin', async(req, res) => {
     // console.log('Inside the bodyyy')
     // console.log(req.body);
     const body = req.body;
     const user = await User.findOne({ email: body.email });
 
-    if(user){
+    if (user) {
         const validPassword = await bcrypt.compare(body.password, user.password);
         if (validPassword) {
             console.log("User found")
@@ -108,12 +108,12 @@ router.post('/signin',async (req, res) => {
             console.log("Password  Not Found")
             alert("Please check email and password")
             res.redirect('login')
-          }
-    }else {
-    //   res.status(401).json({ error: "User does not exist" });
-      console.log("User does not exist")
-      alert("Please check email")
-      res.redirect('login')
+        }
+    } else {
+        //   res.status(401).json({ error: "User does not exist" });
+        console.log("User does not exist")
+        alert("Please check email")
+        res.redirect('login')
     }
 
 })
