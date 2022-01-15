@@ -95,6 +95,20 @@ router.post('/set/:id', async(req, res) => {
     })
 });
 
+router.get('/', (req, res) => {
+    res.render("signin");
+});
+
+
+router.get('/login', (req, res) => {
+    res.render("signin");
+});
+
+router.get('/signup', (req, res) => {
+    res.render("signup");
+});
+
+
 router.post('/signup', async(req, res) => {
     var user = new User();
     user.name = req.body.name;
@@ -149,7 +163,8 @@ router.get('/:id', (req, res) => {
                 // const uri = `set / {: id }`
             res.redirect(`set/${id}`);
             // res.redirect('/set');
-        } else { console.log('Error in medicine delete :' + err); }
+        } 
+        else { console.log('Error in medicine delete :' + err); }
     });
 });
 
