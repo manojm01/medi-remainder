@@ -1,10 +1,9 @@
 <%- include('header') -%>
     <section id="navigation">
-        <!---nav bar section-->
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href=""> <i class="fas fa-stopwatch"></i>MEDICARE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -20,8 +19,7 @@
                         <a class="nav-link" href="">About us</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Check Now
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -33,12 +31,11 @@
                     </li>
                     <li>
                         <a href="/login">
-                            <img alt="My account" src="images/iconmonstr-user-circle-thin-240.png" height="35"
-                                width="35">
+                            <img alt="My account" src="images/iconmonstr-user-circle-thin-240.png" height="35" width="35">
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Hello <%= medicineData[0].user_name %> </a>
+                        <a class="nav-link" href="">Hello <%= signinData.name %> </a>
                     </li>
                 </ul>
             </div>
@@ -47,19 +44,19 @@
 
 
     <section style="margin: 3rem 5rem;">
-        <form action="/set" method="post">
-            <% console.log("edmeice from set:"+medicineData) %>
-                <input type="text" placeholder="Medicine name" name="medi_name" required>
-                <label for="morning">morning</label>
-                <input type="checkbox" value="morning" name="morning">
+        <form action="/set/<%= signinData._id %>" method="post">
 
-                <label for="afternoon">afternoon</label>
-                <input type="checkbox" value="afternoon" name="afternoon">
+            <input type="text" placeholder="Medicine name" name="medi_name" required>
+            <label for="morning">morning</label>
+            <input type="checkbox" value="morning" name="morning">
 
-                <label for="night">night</label>
-                <input type="checkbox" value="night" name="night">
+            <label for="afternoon">afternoon</label>
+            <input type="checkbox" value="afternoon" name="afternoon">
 
-                <button type="submit">Add</button>
+            <label for="night">night</label>
+            <input type="checkbox" value="night" name="night">
+
+            <button type="submit">Add</button>
         </form>
     </section>
 
@@ -79,41 +76,40 @@
                     </tr>
                 </thead>
 
-            
 
 
-            <tbody>
 
-                <% var i=1;%>
-                    <% medicineData.forEach(function(data){%>
+                <tbody>
 
-                        <tr>
-                            <th scope="row">
-                                <%=i; %>
-                            </th>
-                            <td>
-                                <%= data.medi_name %>
-                            </td>
-                            <td>
-                                <%= data.morning %>
-                            </td>
-                            <td>
-                                <%= data.afternoon %>
+                    <% var i=1;%>
+                        <% medicineData.forEach(function(data){%>
 
-                            </td>
-                            <td>
-                                <%= data.night %>
+                            <tr>
+                                <th scope="row">
+                                    <%=i; %>
+                                </th>
+                                <td>
+                                    <%= data.medi_name %>
+                                </td>
+                                <td>
+                                    <%= data.morning %>
+                                </td>
+                                <td>
+                                    <%= data.afternoon %>
 
-                            </td>
-                            <td><a href="/<%= data._id %>"
-                                    onclick="return confirm('Are you sure to delete this record ?');"><i
+                                </td>
+                                <td>
+                                    <%= data.night %>
+
+                                </td>
+                                <td><a href="/<%= data._id %>" onclick="return confirm('Are you sure to delete this record ?');"><i
                                         class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
-                            </td>
-                        </tr>
-                        <% i++; }) %>
-            </tbody>
+                                </td>
+                            </tr>
+                            <% i++; }) %>
+                </tbody>
 
-        </table>
+            </table>
     </section>
 
     <%- include('footer') -%>
