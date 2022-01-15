@@ -3,6 +3,7 @@ const ejs = require("ejs");
 const path = require('path');
 const bodyParser = require("body-parser");
 require('./server/model/connection');
+var favicon = require('serve-favicon');
 const userController = require('./server/controllers/userController');
 
 const app = express();
@@ -12,8 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static("assets"));
 app.set('view engine', 'ejs');
 app.use('/static', express.static(path.join(__dirname, 'assets')))
-
-// const router = require("./router")
+    // app.use(favicon(path.join(__dirname, 'public', 'images/favicon.png ')));
+    // const router = require("./router")
 
 // app.get("/", (req, res) => {
 //     res.render("register")
@@ -27,7 +28,7 @@ app.use('/static', express.static(path.join(__dirname, 'assets')))
 // if(time2=="3:09:00 pm"){
 //     console.log("alert");
 // }
-port=3000;
+port = 3000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 })

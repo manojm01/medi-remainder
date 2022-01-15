@@ -9,59 +9,88 @@ const { type } = require('express/lib/response');
 // -----------------------------------------------
 // -----------------------------------------------
 router.get('/set/:id', function(req, res, next) {
-    var userdata = User.findById(req.params.id,  (err, doc) =>{
-        // console.log("doc:"+doc);
-   
-    // console.log("docemail: "+doc.email)
-//    username = "Manoj" //this username will replace the actual username of the logged in user..
-    // console.log(User().name);
-    Medicine.find({ user_email: doc.email })
-        .then(data => {
-            if (!data) {
-                console.log('Failed to retrieve the Medicine List: ' + err);
-            } else {
+    var userdata = User.findById(req.params.id, (err, doc) => {
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) return false;
 
-                console.log("set render:"+data)
-                res.render("set", {
-                    medicineData: data
-                });
-                // console.log(userData)
-            }
-        })
-        .catch(err => {
-            res.status(500).send({ message: "Erro retrieving user with id " })
-        })
+        console.log("doc: is here get -----------" + doc);
+        console.log("Id id here get -------------------" + req.params.id)
+
+        // console.log("docemail: " + doc.email)
+        //    username = "Manoj" //this username will replace the actual username of the logged in user..
+        // console.log(User().name);
+        Medicine.find({ user_email: doc.email })
+            .then(data => {
+                if (!data) {
+                    console.log('Failed to retrieve the Medicine List: ' + err);
+                } else {
+
+                    console.log(" inside the get ---------------docemail: " + doc.email)
+
+                    // console.log("set render:"+data)
+                    res.render("set", {
+                        medicineData: data,
+                        signinData: doc
+                    });
+                    // console.log(userData)
+                }
+            })
+            .catch(err => {
+                res.status(500).send({ message: "Erro retrieving user with id " })
+            })
     });
 });
 
-router.post('/set', async (req, res) => {
+router.get('/', (req, res) => {
+    res.render("signin");
+});
+
+
+router.get('/login', (req, res) => {
+    res.render("signin");
+});
+
+router.get('/signup', (req, res) => {
+    res.render("signup");
+});
+
+router.post('/set/:id', async(req, res) => {
 
     // var user = new User();
     // user.email = req.body.email;
-    // console.log("user.email: "+user.email);
     // user.name = req.body.name;
     // console.log("user in set post: "+user);
-    // let user1 =await  User.find({email: medicine.user_email});
+    var userdata = User.findById(req.params.id, async(err, doc) => {
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) return false;
 
-    var medicine = new Medicine();
-    medicine.user_name = "Admin";
-    medicine.user_email = "admin@gmail.com";
-    medicine.medi_name = req.body.medi_name;
-    medicine.morning = req.body.morning;
-    medicine.afternoon = req.body.afternoon;
-    medicine.night = req.body.night
+        console.log("doc postt: is here -----------" + doc);
+        console.log("Id in doc post here -------------------" + req.params.id)
 
-    medicine.save()
-        .then(data => {
-            // var user = new User();
+        console.log(req.body);
+        var medicine = new Medicine();
 
-            console.log("data before redirectngg  \n\n\n"+(user1));
-            // console.log(user1[0].id)
-            var id = user1[0].id
-            // const uri = `set/{:id}`
-            res.redirect(`set/${id}`);
-        })
-        .catch(err => { console.log(err); })
+        medicine.user_name = doc.name;
+        medicine.user_email = doc.email;
+        medicine.medi_name = req.body.medi_name;
+        medicine.morning = req.body.morning;
+        medicine.afternoon = req.body.afternoon;
+        medicine.night = req.body.night
+
+        let user1 = await User.find({ email: medicine.user_email });
+        medicine.save()
+            .then(data => {
+                // var user = new User();
+
+                // console.log("data before redirectngg  \n\n\n"+(user1));
+                // console.log(user1[0].id)
+                var id = user1[0].id
+                const uri = `set/${id}`;
+                console.log("the uri is gere----" + uri);
+                // res.redirect(`set/${id}`);
+                res.redirect(`set/${id}`);
+            })
+            .catch(err => { console.log(err); })
+
+    })
 });
 
 router.get('/', (req, res) => {
@@ -89,9 +118,9 @@ router.post('/signup', async(req, res) => {
     user.password = await bcrypt.hash(req.body.password, salt);;
 
     user.save()
-        .then(data => { 
+        .then(data => {
             // console.log(data);
-            res.render('index',{ userData:data}) 
+            res.render('index', { userData: data })
         })
         .catch(err => { console.log(err); })
 })
@@ -105,9 +134,9 @@ router.post('/signin', async(req, res) => {
         const validPassword = await bcrypt.compare(body.password, user.password);
         if (validPassword) {
             console.log("User found")
-            console.log("User"+user)
-            res.render('index',{userData:user})
-          } else {
+            console.log("User" + user)
+            res.render('index', { userData: user })
+        } else {
             console.log("Password  Not Found")
             alert("Please check email and password")
             res.redirect('login')
@@ -122,13 +151,14 @@ router.post('/signin', async(req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-    Medicine.findByIdAndRemove(req.params.id, async (err, doc) => {
+    Medicine.findByIdAndRemove(req.params.id, async(err, doc) => {
+        console.log("Inside the delete route....")
         if (!err) {
-            console.log("delete doc: "+doc);
-            console.log("delete: "+doc.user_email);
-            let user1 =await  User.find({email:doc.user_email});
-            var id = user1[0]._id
-            // const uri = `set/{:id}`
+            // console.log("delete doc: " + doc);
+            // console.log("delete: " + doc.user_email);
+            let user1 = await User.find({ email: doc.user_email });
+            var id = user1[0].id
+                // const uri = `set / {: id }`
             res.redirect(`set/${id}`);
             // res.redirect('/set');
         } 
