@@ -21,7 +21,7 @@ router.get('/set/:id', function(req, res, next) {
                 console.log('Failed to retrieve the Medicine List: ' + err);
             } else {
 
-                // console.log("set render:"+data)
+                console.log("set render:"+data)
                 res.render("set", {
                     medicineData: data
                 });
@@ -32,6 +32,36 @@ router.get('/set/:id', function(req, res, next) {
             res.status(500).send({ message: "Erro retrieving user with id " })
         })
     });
+});
+
+router.post('/set', async (req, res) => {
+
+    // var user = new User();
+    // user.email = req.body.email;
+    // console.log("user.email: "+user.email);
+    // user.name = req.body.name;
+    // console.log("user in set post: "+user);
+    // let user1 =await  User.find({email: medicine.user_email});
+
+    var medicine = new Medicine();
+    medicine.user_name = "Admin";
+    medicine.user_email = "admin@gmail.com";
+    medicine.medi_name = req.body.medi_name;
+    medicine.morning = req.body.morning;
+    medicine.afternoon = req.body.afternoon;
+    medicine.night = req.body.night
+
+    medicine.save()
+        .then(data => {
+            // var user = new User();
+
+            console.log("data before redirectngg  \n\n\n"+(user1));
+            // console.log(user1[0].id)
+            var id = user1[0].id
+            // const uri = `set/{:id}`
+            res.redirect(`set/${id}`);
+        })
+        .catch(err => { console.log(err); })
 });
 
 router.get('/', (req, res) => {
@@ -47,33 +77,6 @@ router.get('/signup', (req, res) => {
     res.render("signup");
 });
 
-router.post('/set', async (req, res) => {
-
-    var user = new User();
-    user.email = req.body.email;
-    user.name = req.body.name;
-    // console.log("user in set post: "+user);
-    var medicine = new Medicine();
-    medicine.user_name = "Admin";
-    medicine.user_email = "admin@gmail.com";
-    medicine.medi_name = req.body.medi_name;
-    medicine.morning = req.body.morning;
-    medicine.afternoon = req.body.afternoon;
-    medicine.night = req.body.night
-
-    let user1 =await  User.find({email:medicine.user_email});
-    medicine.save()
-        .then(data => {
-            // var user = new User();
-
-            // console.log("data before redirectngg  \n\n\n"+(user1));
-            // console.log(user1[0].id)
-            var id = user1[0].id
-            // const uri = `set/{:id}`
-            res.redirect(`set/${id}`);
-        })
-        .catch(err => { console.log(err); })
-});
 
 router.post('/signup', async(req, res) => {
     var user = new User();
@@ -128,7 +131,8 @@ router.get('/:id', (req, res) => {
             // const uri = `set/{:id}`
             res.redirect(`set/${id}`);
             // res.redirect('/set');
-        } else { console.log('Error in medicine delete :' + err); }
+        } 
+        else { console.log('Error in medicine delete :' + err); }
     });
 });
 
