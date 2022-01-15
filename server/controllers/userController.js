@@ -42,6 +42,8 @@ router.get('/set/:id', function(req, res, next) {
 
 router.get('/', (req, res) => {
     res.render("signin");
+
+    console.log("Inside the signin get request...")
 });
 
 
