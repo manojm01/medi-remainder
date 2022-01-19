@@ -163,8 +163,7 @@ router.get('/:id', (req, res) => {
                 // const uri = `set / {: id }`
             res.redirect(`set/${id}`);
             // res.redirect('/set');
-        } 
-        else { console.log('Error in medicine delete :' + err); }
+        } else { console.log('Error in medicine delete :' + err); }
     });
 });
 
