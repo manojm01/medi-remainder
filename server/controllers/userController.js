@@ -10,7 +10,8 @@ const { type } = require('express/lib/response');
 // -----------------------------------------------
 router.get('/set/:id', function(req, res, next) {
     var userdata = User.findById(req.params.id, (err, doc) => {
-        if (!mongoose.Types.ObjectId.isValid(req.params.id)) return false;
+
+        // if (!mongoose.Types.ObjectId.isValid(req.params.id)) return false;
 
         console.log("doc: is here get -----------" + doc);
         console.log("Id id here get -------------------" + req.params.id)
@@ -88,7 +89,7 @@ router.post('/set/:id', async(req, res) => {
                 const uri = `set/${id}`;
                 console.log("the uri is gere----" + uri);
                 // res.redirect(`set/${id}`);
-                res.redirect(`set/${id}`);
+                res.redirect(`/set/${id}`);
             })
             .catch(err => { console.log(err); })
 
@@ -161,7 +162,7 @@ router.get('/:id', (req, res) => {
             let user1 = await User.find({ email: doc.user_email });
             var id = user1[0].id
                 // const uri = `set / {: id }`
-            res.redirect(`set/${id}`);
+            res.redirect(`/set/${id}`);
             // res.redirect('/set');
         } else { console.log('Error in medicine delete :' + err); }
     });
