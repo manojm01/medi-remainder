@@ -5,13 +5,14 @@ const User = mongoose.model('User');
 const Medicine = mongoose.model('Medicine');
 const alert = require('alert');
 const bcrypt = require("bcrypt");
+const webpush = require("web-push");
 const { type } = require('express/lib/response');
 // -----------------------------------------------
 // -----------------------------------------------
 router.get('/set/:id', function(req, res, next) {
     var userdata = User.findById(req.params.id, (err, doc) => {
 
-        // if (!mongoose.Types.ObjectId.isValid(req.params.id)) return false;
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) return false;
 
         console.log("doc: is here get -----------" + doc);
         console.log("Id id here get -------------------" + req.params.id)
@@ -155,6 +156,8 @@ router.post('/signin', async(req, res) => {
 
 router.get('/:id', (req, res) => {
     Medicine.findByIdAndRemove(req.params.id, async(err, doc) => {
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) return false;
+
         console.log("Inside the delete route....")
         if (!err) {
             // console.log("delete doc: " + doc);
@@ -167,5 +170,47 @@ router.get('/:id', (req, res) => {
         } else { console.log('Error in medicine delete :' + err); }
     });
 });
+
+// ------------------------------------notification-----------------------
+// ------------------------------------notification-----------------------
+
+const publicVapidKey =
+    "BJthRQ5myDgc7OSXzPCMftGw-n16F7zQBEN7EUD6XxcfTTvrLGWSIG7y_JxiWtVlCFua0S8MTB5rPziBqNx1qIo";
+const privateVapidKey = "3KzvKasA2SoCxsp0iIG_o9B0Ozvl1XDwI63JRKNIWBM";
+
+webpush.setVapidDetails(
+    "mailto:ashok.com",
+    publicVapidKey,
+    privateVapidKey
+);
+
+// Subscribe Route
+router.post("/subscribe", (req, res) => {
+    // Get pushSubscription object
+    const subscription = req.body;
+
+    // Send 201 - resource created
+    res.status(201).json({});
+
+    // Create payload
+    const payload = JSON.stringify({ title: "Push Test" });
+
+    setInterval(() => {
+        var dateTime = new Date();
+        var currentTime = dateTime.toLocaleTimeString();
+        myTime = currentTime
+        var myTime1 = "9:00:00 am";
+        var myTime2 = "1:30:55 pm";
+        var myTime3 = "8:30:55 pm";
+        console.log("Curretntime :    ----------------" + currentTime)
+        if (currentTime == myTime1 || currentTime == myTime2 || currentTime == myTime3) {
+            webpush
+                .sendNotification(subscription, payload)
+                .catch(err => console.error(err));
+        }
+    }, 1000);
+});
+// ------------------------------------notification-----------------------
+// ------------------------------------notification-----------------------
 
 module.exports = router;
