@@ -17,6 +17,7 @@
     },
     "homepage": "https://github.com/manojm01/medi-remainder#readme",
     "dependencies": {
+        "@pusher/push-notifications-server": "^1.2.4",
         "alert": "^5.0.10",
         "axios": "^0.24.0",
         "bcrypt": "^5.0.1",
