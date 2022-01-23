@@ -35,7 +35,7 @@ router.get('/set/:id', function(req, res, next) {
     });
 });
 router.get('/', (req, res) => {
-    res.render("signin");
+    res.render("progress");
     console.log("Inside the signin get request...")
 });
 router.get('/login', (req, res) => {
@@ -71,12 +71,6 @@ router.post('/set/:id', async(req, res) => {
             })
             .catch(err => { console.log(err); })
     })
-});
-router.get('/', (req, res) => {
-    res.render("signin");
-});
-router.get('/signup', (req, res) => {
-    res.render("signup");
 });
 router.post('/signup', async(req, res) => {
     var user = new User();
@@ -158,9 +152,9 @@ router.post("/subscribe", (req, res) => {
         var currentTime = dateTime.toLocaleTimeString();
         myTime = currentTime
         var myTime1 = "9:00:00 am";
-        var myTime2 = "1:30:55 pm";
+        var myTime2 = "2:53:30 pm";
         var myTime3 = "8:30:55 pm";
-        console.log("Curretntime :    ----------------" + currentTime)
+        // console.log("Curretntime :    ----------------" + currentTime)
         if (currentTime == myTime1 || currentTime == myTime2 || currentTime == myTime3) {
             webpush
                 .sendNotification(subscription, payload)

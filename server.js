@@ -7,7 +7,7 @@ var favicon = require('serve-favicon');
 const userController = require('./server/controllers/userController');
 
 const app = express();
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname,"public")));
 app.use(express.static(path.join(__dirname, "client")));
 app.use(bodyParser.json());
 
