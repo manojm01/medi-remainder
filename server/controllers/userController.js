@@ -33,8 +33,13 @@ router.get('/set/:id', function(req, res, next) {
                 res.status(500).send({ message: "Erro retrieving user with id " })
             })
     });
+   
 });
 router.get('/', (req, res) => {
+    res.render("progress");
+    console.log("Inside the signin get request...")
+});
+router.get('/progress', (req, res) => {
     res.render("progress");
     console.log("Inside the signin get request...")
 });

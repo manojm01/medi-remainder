@@ -9,7 +9,7 @@
     }
     
     .switch input { 
-      opacity: 0;
+      opacity: 1;
       width: 0;
       height: 0;
     }
@@ -51,14 +51,33 @@
       -ms-transform: translateX(26px);
       transform: translateX(26px);
     }
-    
     /* Rounded sliders */
     .slider.round {
-      border-radius: 34px;
+        border-radius: 34px;
     }
     
     .slider.round:before {
-      border-radius: 50%;
+        border-radius: 50%;
+    }
+    form .searchadd{
+        width: 70%;
+        
+        margin: auto;
+    }
+    
+    .box{
+        /* border: 2px solid red; */
+        display: flex;
+        width: 63%;
+        align-items: center;
+        margin: auto;
+        justify-content: space-evenly;
+    }
+    .selecttime{
+        font-family: 'Montserrat';
+        font-size: 2rem;
+        text-align-last: center;
+        line-height: 2;
     }
     </style>
 
@@ -96,7 +115,7 @@
                     </li>
                     <li>
                         <a href="/login">
-                            <img alt="My account" src="images/iconmonstr-user-circle-thin-240.png" height="35" width="35">
+                            <!-- <img alt="My account" src="images/iconmonster-user-circle-thin-240.png" height="35" width="35"> -->
                         </a>
                     </li>
                     <li class="nav-item">
@@ -111,21 +130,20 @@
     <!-- <section style="margin: 3rem 5rem;"> -->
         <section id="start">
            
-        <h2 style="font-family: 'Montserrat';font-size: 2.5rem;text-align-last: center;
-        line-height: 2 "><b>Select your medicines</b></h2>
+        <h2 class="selecttime"><b>Add your medicines</b></h2>
      
   
         <form action="/set/<%= signinData._id %>" method="post" >
           
               
-            <div class="input-group rounded mb-5 px-5 "  >
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <div class="input-group rounded mb-3 px-5 searchadd"  >
+                <input type="search" name="medi_name" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                 <span class="input-group-text border-1"  id="search-addon">
                   <i class="fas fa-search"></i>
                 </span>
-              </div>
-              <h2 style="font-family: 'Montserrat';font-size: 2.5rem;text-align-last: center;
-              line-height: 2; padding-top: 0%;"><b>Select your Time</b></h2>
+                <button type="submit" style="margin-left: 19px;">Add</button>
+            </div>
+              <h3 class="selecttime"><b>Select your Time</b></h3>
    
 
               
@@ -144,22 +162,25 @@
             
   <!-- Rounded switch -->
         <div class="box">
-
+            <h5>Morning</h5>
+            <h5>Afternoon</h5>
+            <h5>Night</h5>
+       </div>
+        <div class="box">
              <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox" value="morning" name="morning">
                 <span class="slider"></span>
+                
              </label>
-                <label class="switch">
-                    <input type="checkbox" checked>
+             <label class="switch">
+                    <input type="checkbox" value="afternoon" name="afternoon">
                     <span class="slider"></span>
-                </label>
-       
-
-        <label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider"></span>
-        </label>
-    </div>
+             </label>
+            <label class="switch" >
+                <input type="checkbox"  value="night" name="night">
+                <span class="slider"></span>
+            </label>
+       </div>
 </div>
         </form>
    

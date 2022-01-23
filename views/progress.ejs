@@ -1,101 +1,199 @@
 <%- include('header') -%>
-<style>
-    .table td img{
-        margin-left: 12px;
-    }
-</style>
-<section id="navigation">
-    <!---nav bar section-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href=""> </i>MEDICARE</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <style>
+        .table td img {
+            margin-bottom: 2rem;
+            margin-left: 12px;
+        }
+    </style>
+    <section id="navigation">
+        <!---nav bar section-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href=""> </i>MEDICARE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Contacts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">About us</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Check Now
-                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Your Progress</a></li>
-                        <li><a class="dropdown-item" href="#">Order Online</a></li>
-                        <li><a class="dropdown-item" href="#">Reminders</a></li>
-                        <li><a class="dropdown-item" href="#">Explore</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/login">
-                        <img alt="My account" src="images/iconmonstr-user-circle-thin-240.png" height="35" width="35">
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Hello userData.name </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</section>
-<section class="container mt-5">
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">👨‍💻</th>
-            <th scope="col">Sunday</th>
-            <th scope="col">Monday</th>
-            <th scope="col">Tuesday</th>
-            <th scope="col">Wednesday</th>
-            <th scope="col">Thursday</th>
-            <th scope="col">Friday</th>
-            <th scope="col">Saturday</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Fever</th>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">About us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Check Now
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Your Progress</a></li>
+                            <li><a class="dropdown-item" href="#">Order Online</a></li>
+                            <li><a class="dropdown-item" href="#">Reminders</a></li>
+                            <li><a class="dropdown-item" href="#">Explore</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/login">
+                            <img alt="My account" src="images/iconmonstr-user-circle-thin-240.png" height="35"
+                                width="35">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Hello userData.name </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <section class="container mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Fever</th>
+                    <th scope="col">Sunday</th>
+                    <th scope="col">Monday</th>
+                    <th scope="col">Tuesday</th>
+                    <th scope="col">Wednesday</th>
+                    <th scope="col">Thursday</th>
+                    <th scope="col">Friday</th>
+                    <th scope="col">Saturday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Morning</th>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                </tr>
+                <tr>
+                    <th scope="row">Afternoon</th>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                </tr>
+                <tr>
+                    <th scope="row">Night</th>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Corona</th>
+                    <th scope="col">Sunday</th>
+                    <th scope="col">Monday</th>
+                    <th scope="col">Tuesday</th>
+                    <th scope="col">Wednesday</th>
+                    <th scope="col">Thursday</th>
+                    <th scope="col">Friday</th>
+                    <th scope="col">Saturday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Morning</th>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                </tr>
+                <tr>
+                    <!-- <th scope="row">Afternoon</th> -->
+                    <!-- <td><img src="images/cross.jpg"/></td>
             <td><img src="images/checked.jpg"/></td>
             <td><img src="images/checked.jpg"/></td>
             <td><img src="images/cross.jpg"/></td>
             <td><img src="images/checked.jpg"/></td>
-            <td><img src="images/cross.jpg"/></td>
             <td><img src="images/checked.jpg"/></td>
-            <td><img src="images/cross.jpg"/></td>
-        </tr>
-          <tr>
-            <th scope="row">Corona</th>
-            <td><img src="images/cross.jpg"/></td>
-            <td><img src="images/checked.jpg"/></td>
-            <td><img src="images/checked.jpg"/></td>
-            <td><img src="images/cross.jpg"/></td>
-            <td><img src="images/checked.jpg"/></td>
-            <td><img src="images/checked.jpg"/></td>
-            <td><img src="images/cross.jpg"/></td>
-        </tr>
-          <tr>
-            <th scope="row">Omicron</th>
-            <td><img src="images/checked.jpg"/></td>
-            <td><img src="images/cross.jpg"/></td>
-            <td><img src="images/checked.jpg"/></td>
-            <td><img src="images/checked.jpg"/></td>
-            <td><img src="images/checked.jpg"/></td>
-            <td><img src="images/cross.jpg"/></td>
-            <td><img src="images/cross.jpg"/></td>
-        </tr>
-        
-        </tbody>
-    </table>
-</section>
+            <td><img src="images/cross.jpg"/></td> -->
+                </tr>
+                <tr>
+                    <th scope="row">Night</th>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Dolo</th>
+                    <th scope="col">Sunday</th>
+                    <th scope="col">Monday</th>
+                    <th scope="col">Tuesday</th>
+                    <th scope="col">Wednesday</th>
+                    <th scope="col">Thursday</th>
+                    <th scope="col">Friday</th>
+                    <th scope="col">Saturday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Morning</th>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                </tr>
+                <tr>
+                    <th scope="row">Afternoon</th>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                </tr>
+                <tr>
+                    <th scope="row">Night</th>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/checked.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                    <td><img src="images/cross.jpg" /></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </section>
 
 
 
-<%- include('footer') -%>
+    <%- include('footer') -%>
