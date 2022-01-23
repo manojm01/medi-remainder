@@ -11,7 +11,7 @@ const { type } = require('express/lib/response');
 router.get('/set/:id', function(req, res, next) {
     var userdata = User.findById(req.params.id, (err, doc) => {
 
-        // if (!mongoose.Types.ObjectId.isValid(req.params.id)) return false;
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) return false;
 
         console.log("doc: is here get -----------" + doc);
         console.log("Id id here get -------------------" + req.params.id)
@@ -155,6 +155,8 @@ router.post('/signin', async(req, res) => {
 
 router.get('/:id', (req, res) => {
     Medicine.findByIdAndRemove(req.params.id, async(err, doc) => {
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) return false;
+
         console.log("Inside the delete route....")
         if (!err) {
             // console.log("delete doc: " + doc);
