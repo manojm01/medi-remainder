@@ -62,45 +62,45 @@
 
     <section class="container">
         <table class="table  table-hover table-bordered styled-table" style="background-color: #eee;">
-                <thead>
-                    <tr>
-                        <th scope="col" style="width: 5%">#</th>
-                        <th scope="col" style="width: 30%">Medicine</th>
-                        <th scope="col" style="width: 20%">Morning</th>
-                        <th scope="col" style="width: 20%">Afternoon</th>
-                        <th scope="col" style="width: 20%">Night</th>
-                        <th scope="col" style="width: 5%">Remove</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 5%">#</th>
+                    <th scope="col" style="width: 30%">Medicine</th>
+                    <th scope="col" style="width: 20%">Morning</th>
+                    <th scope="col" style="width: 20%">Afternoon</th>
+                    <th scope="col" style="width: 20%">Night</th>
+                    <th scope="col" style="width: 5%">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
 
-                    <% var i=1;%>
-                        <% medicineData.forEach(function(data){%>
+                <% var i=1;%>
+                    <% medicineData.forEach(function(data){%>
 
-                            <tr>
-                                <th scope="row">
-                                    <%=i; %>
-                                </th>
-                                <td>
-                                    <%= data.medi_name %>
-                                </td>
-                                <td>
-                                    <%= data.morning %>
-                                </td>
-                                <td>
-                                    <%= data.afternoon %>
+                        <tr>
+                            <th scope="row">
+                                <%=i; %>
+                            </th>
+                            <td>
+                                <%= data.medi_name %>
+                            </td>
+                            <td>
+                                <%= data.morning %>
+                            </td>
+                            <td>
+                                <%= data.afternoon %>
 
-                                </td>
-                                <td>
-                                    <%= data.night %>
+                            </td>
+                            <td>
+                                <%= data.night %>
 
-                                </td>
-                                <td><a href="/<%= data._id %>" onclick="return confirm('Are you sure to delete this record ?');"><i
+                            </td>
+                            <td><a href="/<%= data._id %>" onclick="return confirm('Are you sure to delete this record ?');"><i
                                         class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
-                                </td>
-                            </tr>
-                            <% i++; }) %>
-                </tbody>
+                            </td>
+                        </tr>
+                        <% i++; }) %>
+            </tbody>
         </table>
     </section>
 
