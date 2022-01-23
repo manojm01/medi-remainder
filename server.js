@@ -3,7 +3,7 @@ const ejs = require("ejs");
 const path = require('path');
 const bodyParser = require("body-parser");
 require('./server/model/connection');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 const userController = require('./server/controllers/userController');
 
 const app = express();
