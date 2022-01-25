@@ -1,47 +1,296 @@
-#title{
-    font-family: 'Montserrat';
-    background-color: #fff;
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+.main-signin {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: #dde1e7;
+  font-family: "Poppins", sans-serif;
 }
 
-h2,h4{
-    font-family: 'PT Serif', serif;
-}
-#FAQ section{
-    font-family:"Montserrat-Black";
-    padding-bottom: 10% ;
-    background-color: #AEFEFF;
-}
-.container-fluid
-{
-    padding-left: 3%;
-    padding-top: 3%;
-    padding-bottom: 5%;
-    
-}
-.navbar{
-    padding-bottom: 0%;
-     padding-left: 2%;
-     padding-right: 2%;
-    
+.main-signin .content {
+  width: 330px;
+  background: #dde1e7;
+  border-radius: 10px;
+  padding: 40px 30px;
+  box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288);
 }
 
-
-.card{
-     margin-right: 10%;
-     margin-left: 10%;
-     margin-top: 10%;
-    
-}
-#footer section{
-    padding-top: 5%;
-}
-#FAQ{
-    background-color:#4FBDBA;
-    padding-bottom: 10%;
-    margin-right: 0%;
-    margin-top:5%;
-    margin-bottom: 5%;
+.main-signin .content .text {
+  font-size: 33px;
+  font-weight: 600;
+  margin-bottom: 35px;
+  color: #000;
 }
 
+.main-signin .content .field {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
 
+.main-signin .field input {
+  height: 100%;
+  width: 100%;
+  padding-left: 45px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  color: #595959;
+  background: #dde1e7;
+  border-radius: 25px;
+  box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #ffffff73;
+}
 
+.main-signin .field input:focus ~ label {
+  box-shadow: inset 2px 2px 5px #babecc, inset -1px -1px 2px #ffffff73;
+}
+
+.main-signin .field:nth-child(2) {
+  margin-top: 20px;
+}
+
+.main-signin .field span {
+  position: absolute;
+  width: 50px;
+  line-height: 50px;
+  color: #595959;
+}
+
+.main-signin .field label {
+  position: absolute;
+  top: 50%;
+  left: 45px;
+  pointer-events: none;
+  color: #666666;
+  transform: translateY(-50%);
+}
+
+.main-signin .field input:focus ~ label {
+  opacity: 0;
+}
+
+.main-signin .forgot-pass {
+  text-align: left;
+  margin: 10px 0 10px 5px;
+}
+
+.main-signin .forgot-pass a {
+  font-size: 16px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.main-signin .forgot-pass:hover a {
+  text-decoration: underline;
+}
+
+.main-signin button {
+  margin: 15px 0;
+  width: 100%;
+  height: 50px;
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+  background: #dde1e7;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 25px;
+  box-shadow: 2px 2px 5px #babecc, -5px -5px 10px #ffffff73;
+}
+
+.main-signin button:focus {
+  color: #3498db;
+  box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #ffffff73;
+}
+
+.main-signin .signup {
+  font-size: 16px;
+  color: #595959;
+  margin: 10px 0;
+}
+
+.main-signin .signup a {
+  color: #000;
+  text-decoration: none;
+}
+
+.main-signin .signup a:hover {
+  text-decoration: underline;
+}
+
+#title {
+  font-family: "Montserrat";
+  background-color: #fff;
+}
+h2,
+h4 {
+  /* font-family: 'PT Serif', serif; */
+  font-family: "Montserrat";
+}
+#FAQ section {
+  font-family: "Montserrat-Black";
+  padding-bottom: 10%;
+  background-color: #aefeff;
+}
+.container-fluid {
+  padding-left: 3%;
+  padding-top: 3%;
+  padding-bottom: 5%;
+}
+.navbar {
+  height: 60px;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.card {
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+#footer section {
+  padding-top: 5%;
+}
+#FAQ {
+  background-color: #4fbdba;
+  padding-bottom: 10%;
+  margin-right: 0%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+/* css for toggle button */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 1;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+form .searchadd {
+  width: 70%;
+
+  margin: auto;
+}
+
+.box {
+  /* border: 2px solid red; */
+  display: flex;
+  width: 63%;
+  align-items: center;
+  margin: auto;
+  justify-content: space-evenly;
+}
+.selecttime {
+  font-family: "Montserrat";
+  font-size: 2rem;
+  text-align-last: center;
+  line-height: 2;
+}
+
+/* <!---css for table--> */
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #45c4aa;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+/* progress-table */
+.progress-table .table td img {
+  margin-left: 12px;
+}
+.progress-table .table {
+  margin-bottom: 2rem;
+}

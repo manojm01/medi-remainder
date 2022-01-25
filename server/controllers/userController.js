@@ -6,8 +6,6 @@ const Medicine = mongoose.model('Medicine');
 const alert = require('alert');
 const bcrypt = require("bcrypt");
 const webpush = require("web-push");
-const { type } = require('express/lib/response');
-// -----------------------------------------------
 // -----------------------------------------------
 router.get('/set/:id', function(req, res, next) {
     var userdata = User.findById(req.params.id, (err, doc) => {
@@ -36,7 +34,7 @@ router.get('/set/:id', function(req, res, next) {
    
 });
 router.get('/', (req, res) => {
-    res.render("progress");
+    res.render("index");
     console.log("Inside the signin get request...")
 });
 router.get('/progress', (req, res) => {
@@ -83,7 +81,7 @@ router.post('/signup', async(req, res) => {
     user.age = req.body.age;
     user.email = req.body.email;
     user.gender = req.body.gender;
-    // generate salt to hash password
+    
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(req.body.password, salt);;
 
@@ -129,7 +127,6 @@ router.get('/:id', (req, res) => {
 });
 
 // ------------------------------------notification-----------------------
-// ------------------------------------notification-----------------------
 
 const publicVapidKey =
     "BJthRQ5myDgc7OSXzPCMftGw-n16F7zQBEN7EUD6XxcfTTvrLGWSIG7y_JxiWtVlCFua0S8MTB5rPziBqNx1qIo";
@@ -167,7 +164,6 @@ router.post("/subscribe", (req, res) => {
         }
     }, 1000);
 });
-// ------------------------------------notification-----------------------
 // ------------------------------------notification-----------------------
 
 module.exports = router;
