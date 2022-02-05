@@ -1,156 +1,207 @@
 <%- include('header') -%>
    
-    <section id="navigation">
-        <!---nav bar section-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href=""> </i>MEDICARE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Contacts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">About us</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Check Now
-                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Your Progress</a></li>
-                            <li><a class="dropdown-item" href="#">Order Online</a></li>
-                            <li><a class="dropdown-item" href="#">Reminders</a></li>
-                            <li><a class="dropdown-item" href="#">Explore</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/login">
-                            <img alt="My account" src="images/iconmonstr-user-circle-thin-240.png" height="35" width="35">
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Hello <%= userData.name %> </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </section>
-    <!--title-->
-    <section id="title">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h1 style="font-family: 'Montserrat';font-size: 3rem;
-                          line-height: 1.5 "><b>Don't miss your medicines</b></h1>
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/favicon (2).png"
+          style=" filter: invert(27%) sepia(71%) saturate(3024%) hue-rotate(229deg) brightness(94%) contrast(100%);"
+          alt="">
+        <span>MEDICARE</span>
+      </a>
 
-                    <h2>We remind you to take your medicines at right time!!</h2>
-                </div>
-                <div class="col-lg-6" data-aos="zoom-out">
-                    <img src="images/newestbg.jpg" height="500" widht="500" alt="medicine image">
-                </div>
-            </div>
-    </section>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Contact Us</a></li>
+          <li class="dropdown"><a href="#"><span>Check Now</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Your Progress</a></li>
 
-    <!--CARDS HERE-->
-    <div class="container-fluid">
-        <section id="card">
-            <div class="row">
-                <div class="col-lg-4 col=md-6" data-aos="flip-left">
-                    <div class="card" style="width: 17rem;">
-                        <img src="images/reminder-card.png" height="250" class="card-img-top" alt="reminders">
-                        <div class="card-body">
-                            <h5 class="card-title">Set Reminders</h5>
-                            <p class="card-text">If you are forgetting to take medicines daily,then we can help you in reminding at given time.</p>
-                            <a href="set/<%= userData._id %>" class="btn btn-primary btn-sm">Set your reminders >></a>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col=md-6" data-aos="flip-left">
-                    <div class="card" style="width: 17rem;">
-                        <img src="images/goal.png" height="250" class="card-img-top" alt="progress">
-                        <div class="card-body">
-                            <h5 class="card-title">Track Progress</h5>
-                            <p class="card-text">We keep track of your daily medicine intake and can show you your progress.</p>
-                            <a href="login" class="btn btn-primary btn-sm">Track your progress >></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col=md-12" data-aos="flip-left">
-                    <div class="card" style="width: 17rem;">
-                        <img src="images/online-shopping.png" height="250" class="card-img-top" alt="order online">
-                        <div class="card-body">
-                            <h5 class="card-title">Order Online</h5>
-                            <p class="card-text">You can order your medicines online just in 1 click from the assosciated apps.</p>
-                            <a href="login" class="btn btn-primary btn-sm">Order your medicines online >></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <li><a href="#">Order Online</a></li>
+              <li><a href="#">Remainders</a></li>
+              <li><a href="#">Explore</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/login">
+              <img alt="My account" src="assets/img/account.png"
+                style=" filter: invert(27%) sepia(71%) saturate(3024%) hue-rotate(229deg) brightness(94%) contrast(100%);"
+                height="35" width="35">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Hello </a>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+      </nav><!-- .navbar -->
 
     </div>
-   
+  </header><!-- End Header -->
 
-    <!--FAQ'S SECTION-->
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
 
-    <section id="FAQ">
-
-        <div class="row justify-content-center">
-            <div class="col-md-20">
-                <div class="card">
-                    <div class="card-header">Commonly asked Questions :</div>
-                    <div class="accordion" id="accordionPanelsStayOpenExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                        Q- Is this service free?
-                        </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                                <div class="accordion-body">
-                                    <strong>Yes,Our service is free of cost,except if you want to order online medicines.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These
-                                    classes control the overall appearance,
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                            Q- How many members can set reminders?
-                        </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                                <div class="accordion-body">
-                                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                            Q- Can we track progress daily ?
-                        </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                                <div class="accordion-body">
-                                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">Don't miss your medicines</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">We remind you to take your medicines at right time!!</h2>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              <a href="#about"
+                class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Get Started</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
             </div>
+          </div>
         </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="assets/img/newestbg_ccexpress.png" class="img-fluid" alt="">
         </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Values Section ======= -->
+    <section id="values" class="values">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Our Services</h2>
+          <p>We help you do the following things</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="box">
+              <img src="assets/img/reminder-card.png" class="img-fluid" alt="">
+              <h3>Set Reminders</h3>
+              <p>If you are forgetting to take medicines daily,then we can help you in reminding at given time</p>
+              <a href="set/<%= userData._id %>" class="btn btn-primary btn-sm">Set your reminders -></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+            <div class="box">
+              <img src="assets/img/goal.png" class="img-fluid" alt="">
+              <h3>Track Progress</h3>
+              <p>We keep track of your daily medicine intake and can show you your progress.</p>
+              <a href="login" class="btn btn-primary btn-sm">Track your progress -></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
+            <div class="box">
+              <img src="assets/img/online-shopping.png" class="img-fluid" alt="">
+              <h3>Order Online</h3>
+              <p>You can order your medicines online just in 1 click from the assosciated apps.</p>
+              <a href="login" class="btn btn-primary btn-sm">Order your medicines online -></a>
+            </div>
+          </div>
+
         </div>
 
+      </div>
 
-    </section>
+    </section><!-- End Values Section -->
+
+
+    <!-- ======= F.A.Q Section ======= -->
+    <section id="faq" class="faq">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>F.A.Q</h2>
+          <p>Frequently Asked Questions</p>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <!-- F.A.Q List 1-->
+            <div class="accordion accordion-flush" id="faqlist1">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq-content-1">
+                    Is this service free?
+                  </button>
+                </h2>
+                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    Yes,Our service is free of cost,except if you want to order online medicines.</strong> It is shown
+                    by default, until the collapse plugin adds the appropriate classes that we use to style each
+                    element. These
+                    classes control the overall appearance,
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq-content-2">
+                    How many members can set reminders?
+                  </button>
+                </h2>
+                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the
+                    collapse plugin adds the appropriate classes that we use to style each element.
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+
+            <!-- F.A.Q List 2-->
+            <div class="accordion accordion-flush" id="faqlist2">
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq2-content-1">
+                    Can we track progress daily ?
+                  </button>
+                </h2>
+                <div id="faq2-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+                  <div class="accordion-body">
+                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
+                    collapse plugin adds the appropriate classes that we use to style each element.
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- End F.A.Q Section -->
+
+
+  </main><!-- End #main -->
     <%- include('footer') -%>
