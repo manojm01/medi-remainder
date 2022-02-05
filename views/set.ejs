@@ -1,50 +1,6 @@
 
 <%- include('header') -%>
 
-    <section id="navigation">
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href=""> <i class="fas fa-stopwatch"></i>MEDICARE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Contacts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">About us</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Check Now
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Your Progress</a></li>
-                            <li><a class="dropdown-item" href="#">Order Online</a></li>
-                            <li><a class="dropdown-item" href="#">Reminders</a></li>
-                            <li><a class="dropdown-item" href="#">Explore</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/login">
-                            <!-- <img alt="My account" src="images/iconmonster-user-circle-thin-240.png" height="35" width="35"> -->
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Hello <%= signinData.name %> </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </section>
-
-
     <!-- <section style="margin: 3rem 5rem;"> -->
     <section id="start">
            
@@ -62,29 +18,14 @@
                 <button type="submit" style="margin-left: 19px;">Add</button>
             </div>
               <h3 class="selecttime"><b>Select your Time</b></h3>
-   
-
-              
-            <!-- <input type="text" placeholder="Medicine name" name="medi_name" required>
-            <label for="morning">morning</label>
-            <input type="checkbox" value="morning" name="morning"> -->
-
-            <!-- <label for="afternoon">afternoon</label>
-            <input type="checkbox" value="afternoon" name="afternoon">
-
-            <label for="night">night</label>
-            <input type="checkbox" value="night" name="night"> -->
-
-             <!-- <button type="submit">Add</button>  -->
-             <!-- Rectangular switch -->
             
   <!-- Rounded switch -->
-        <div class="box">
+        <div class="set-box">
             <h5>Morning</h5>
             <h5>Afternoon</h5>
             <h5>Night</h5>
        </div>
-        <div class="box">
+        <div class="set-box">
              <label class="switch">
                 <input type="checkbox" value="morning" name="morning">
                 <span class="slider"></span>
@@ -150,5 +91,5 @@
             </tbody>
         </table>
     </section>
-    
-    <%- include('footer') -%>
+    <script src="/assets/js/main.js"></script>
+ <%- include('footer') -%>
