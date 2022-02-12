@@ -31,7 +31,7 @@ router.get('/set/:id', function(req, res, next) {
                 res.status(500).send({ message: "Erro retrieving user with id " })
             })
     });
-   
+
 });
 router.get('/', (req, res) => {
     res.render("index");
@@ -81,7 +81,7 @@ router.post('/signup', async(req, res) => {
     user.age = req.body.age;
     user.email = req.body.email;
     user.gender = req.body.gender;
-    
+
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(req.body.password, salt);;
 
@@ -154,8 +154,8 @@ router.post("/subscribe", (req, res) => {
         var currentTime = dateTime.toLocaleTimeString();
         myTime = currentTime
         var myTime1 = "9:00:00 am";
-        var myTime2 = "2:53:30 pm";
-        var myTime3 = "8:30:55 pm";
+        var myTime2 = "5:02:30 pm";
+        var myTime3 = "11:10:35 pm";
         // console.log("Curretntime :    ----------------" + currentTime)
         if (currentTime == myTime1 || currentTime == myTime2 || currentTime == myTime3) {
             webpush
