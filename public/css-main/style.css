@@ -217,7 +217,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 form .searchadd {
-  width: 100vw;
+  width: 60vw;
   margin: auto;
 }
 
@@ -244,49 +244,55 @@ form .searchadd {
   justify-content: space-evenly;
 } */
 .selecttime {
-  font-family: "Montserrat";
-  font-size: 2rem;
+  margin: 25px 0;
+  font-family: "Nunito", sans-serif;
+  font-size: 2.5rem;
   text-align-last: center;
-  line-height: 2;
+  line-height: 3;
 }
 
 /* <!---css for table--> */
 
 .styled-table {
   border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  font-family: sans-serif;
+  /* margin: 25px 0; */
+  font-size: 1.1rem;
+  font-family: "Nunito", sans-serif;
   min-width: 25%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .styled-table thead tr {
-  background-color: #45c4aa;
+  background-color:#2196f3 ;
   color: #ffffff;
   text-align: left;
+  font-family: "Nunito", sans-serif;
 }
 
 .styled-table th,
 .styled-table td {
   padding: 12px 15px;
+  font-family: "Nunito", sans-serif;
 }
 
 .styled-table tbody tr {
   border-bottom: 1px solid #dddddd;
+  font-family: "Poppins", sans-serif;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
+  font-family: "Poppins", sans-serif;
 }
 
 .styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 2px solid #2196f3;
 }
 
 .styled-table tbody tr.active-row {
   font-weight: bold;
   color: #009879;
+  font-family: "Nunito", sans-serif;
 }
 
 /* progress-table */
