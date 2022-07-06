@@ -133,7 +133,7 @@ const publicVapidKey =
 const privateVapidKey = "3KzvKasA2SoCxsp0iIG_o9B0Ozvl1XDwI63JRKNIWBM";
 
 webpush.setVapidDetails(
-    "mailto:ashok.com",
+    "mailto:fksfshdlfh.com",
     publicVapidKey,
     privateVapidKey
 );
