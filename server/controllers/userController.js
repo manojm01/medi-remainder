@@ -154,8 +154,8 @@ router.post("/subscribe", (req, res) => {
         var currentTime = dateTime.toLocaleTimeString();
         myTime = currentTime
         var myTime1 = "9:00:00 am";
-        var myTime2 = "5:02:30 pm";
-        var myTime3 = "11:19:55 pm";
+        var myTime2 = "12:00:00 pm";
+        var myTime3 = "08:00:00 pm";
         // console.log("Curretntime :    ----------------" + currentTime)
         if (currentTime == myTime1 || currentTime == myTime2 || currentTime == myTime3) {
             webpush
